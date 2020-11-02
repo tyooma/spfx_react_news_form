@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <Field
+        ID="{bfe71529-fcc2-4bb5-8650-1ead79fb7d20}"
+        Name="NewsDescription"
+        DisplayName="Description"
+        Type="Note"
+        Required="FALSE"
+        Group="Custom Site Columns">
+    </Field>
+
+    <Field
+        ID="{fa541006-da41-4a2b-a773-1b599b888d8d}"
+        Name="IsVisible"
+        DisplayName="Is Visible"
+        Type="Boolean"
+        Required="FALSE"
+        Group="Custom Site Columns">
+    </Field>
+
+    <Field
+       ID="{cf9da342-3a7f-4041-9187-0823f6104dd0}"
+       Name="AssignedPerson"
+       DisplayName="Assigned Person"
+       Type="User"
+       Required="FALSE"
+       Group="Custom Site Columns">
+    </Field>
+
+    <Field
+       ID="{5aaf4d71-f549-45e4-82b3-857d910388c7}"
+       Name="DatePublishing"
+       DisplayName="Date Publishing"
+       Type="DateTime"
+       Required="FALSE"
+       Group="Custom Site Columns">
+    </Field>
+
+    <ContentType ID="0x0100ABD05FCF066C4BD8BD551520E588E1A6" Name="NewsItem" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" DisplayName="$Resources:core,Title;" Name="LinkTitle" ReadOnly="TRUE" />
+            <FieldRef ID="{bfe71529-fcc2-4bb5-8650-1ead79fb7d20}" DisplayName="Description" Required="FALSE" Name="NewsDescription" />
+            <FieldRef ID="{fa541006-da41-4a2b-a773-1b599b888d8d}" DisplayName="Is Visible" Required="FALSE" Name="IsVisible" />
+            <FieldRef ID="{5aaf4d71-f549-45e4-82b3-857d910388c7}" DisplayName="Date Publishing" Required="FALSE" Name="DatePublishing" />
+            <FieldRef ID="{cf9da342-3a7f-4041-9187-0823f6104dd0}" DisplayName="Assigned Person" Required="FALSE" Name="AssignedPerson" />
+        </FieldRefs>
+    </ContentType>
+
+    <ListInstance
+            CustomSchema="schema.xml"
+            FeatureId="00bfea71-de22-43b2-a848-c05709900100"
+            Title="News"
+            Description="News List Instance"
+            TemplateType="100"
+            Url="Lists/News">
+    </ListInstance>
+</Elements>

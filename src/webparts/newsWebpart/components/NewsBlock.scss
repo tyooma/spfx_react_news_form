@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  min-width: 80px;
+  max-width: 100px;
+
+  background-color: rgb(245, 106, 187);
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+.hr {
+  margin-top: 40px;
+
+  opacity: 0.5;
+}
+
+.news {
+  margin-top: 40px;
+
+  &__filters {
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__filters_title {
+    margin-right: 10px;
+
+    color: #000;
+  }
+
+  &__filters_btn {
+    padding: 6px 10px;
+    margin-right: 4px;
+
+    background-color: rgb(32, 32, 32);
+    color: #fff;
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: #ccc;
+      color: #000;
+    }
+  }
+
+  &__non-visible {
+    margin-bottom: 15px;
+  }
+
+  &__head {
+    margin-bottom: 30px;
+    
+    text-align: center;
+
+    color: rgb(20, 20, 20);
+  }
+
+  &__item {
+    padding: 10px 0 10px 15px;
+    margin-bottom: 10px;
+
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+
+    color: rgb(29, 29, 29);
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  &__icons {
+    position: absolute;
+    right: 15px;
+
+    opacity: 0.6;
+  }
+
+  &__edit {
+    margin-right: 8px;
+  }
+
+  &__edit, &__delete {
+    transition: color 0.3s;
+    cursor: pointer;
+    
+    &:hover {
+      color: rgb(245, 106, 187);
+
+      opacity: 0.8;
+    }
+  }
+
+  &__editor {
+  }
+
+  &__editor-title {
+    margin-bottom: 10px;
+
+    width: 350px;
+  }
+
+  &__editor-description {
+    margin-bottom: 10px;
+
+    width: 350px;
+  }
+
+  &__editor-btn {
+    padding: 6px 10px;
+    margin: 0 10px 15px 0;
+
+    background-color: rgb(245, 106, 187);
+    color: #fff;
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: #ccc;
+      color: #000;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    font-size: 24px;
+  }
+
+  &__description {
+    margin-bottom: 20px;
+
+    font-size: 18px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    font-size: 12px;
+    color: #ccc;
+  }
+
+  &__slash {
+    margin: 0 8px;
+
+    color: rgb(182, 182, 182)
+  }
+
+  &__visibility {
+    display: flex;
+    align-items: center;
+  }
+
+  &__visibility-text {
+    margin-right: 6px;
+  }
+
+  &__green {
+    width: 8px;
+    height: 8px;
+
+    background-color: rgb(97, 224, 97);
+    border-radius: 50%;
+  }
+
+  &__red {
+    width: 8px;
+    height: 8px;
+
+    background-color: rgb(235, 91, 91);
+    border-radius: 50%;
+  }
+
+  &__user {
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(245, 106, 187);
+
+      opacity: 0.8;
+    }
+  }
+}
