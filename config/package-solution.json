@@ -3,14 +3,14 @@
   "solution": {
     "name": "ash-spfx-webpart-client-side-solution",
     "id": "9b3a878b-6470-4a05-ba3a-b4d47bc8a8c4",
-    "version": "5.1.0.0",
+    "version": "6.1.0.0",
     "includeClientSideAssets": true,
     "isDomainIsolated": false,
     "features": [{
       "title": "ash-asset-deployment-webpart-client-side-solution",
       "description": "ash-asset-deployment-webpart-client-side-solution",
       "id": "9040490A-F34C-4FB0-A1D0-C4EFDA49A688",
-      "version": "5.1.0.0",
+      "version": "6.1.0.0",
       "assets": {
         "elementManifests": [
           "elements.xml"

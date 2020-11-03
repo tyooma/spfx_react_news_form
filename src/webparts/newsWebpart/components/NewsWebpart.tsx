@@ -29,7 +29,7 @@ export const NewsWebpart: React.FunctionComponent<INewsWebpartProps> = props => 
   const [userOrder, setUserOrder] = React.useState(true);
   const [dateOrder, setDateOrder] = React.useState(true);
   const [isUpdate, setIsUpdate] = React.useState(true);
-  const [nonVisible, setNonVisible] = React.useState(false);
+  const [nonVisible, setNonVisible] = React.useState(props.isVisible);
   const [tempTitle, setTempTitle] = React.useState("");
   const [tempDescription, setTempDescription] = React.useState("");
 
@@ -41,6 +41,10 @@ export const NewsWebpart: React.FunctionComponent<INewsWebpartProps> = props => 
     });
     setItems(itemsFromServer);
   };
+
+  React.useEffect(() => {
+    setNonVisible(props.isVisible);
+  }, [props.isVisible]);
 
   React.useEffect(() => {
     getItemsFromServer();
@@ -91,9 +95,9 @@ export const NewsWebpart: React.FunctionComponent<INewsWebpartProps> = props => 
     setDateOrder(prevState => !prevState);
   };
 
-  const onChangeNonVisible = (ev: React.FormEvent<HTMLElement>, checked: boolean): void => {
-    setNonVisible(!!checked);
-  };
+  // const onChangeNonVisible = (ev: React.FormEvent<HTMLElement>, checked: boolean): void => {
+  //   setNonVisible(!!checked);
+  // };
 
   const addItemToTheList = async () => {
     await sp.web.lists.getByTitle("News").items.add({
@@ -145,8 +149,6 @@ export const NewsWebpart: React.FunctionComponent<INewsWebpartProps> = props => 
       Title: tempTitle,
       NewsDescription: tempDescription
     });
-
-    console.log(tempTitle);
 
     setIsUpdate(prevState => !prevState);
   };
@@ -221,14 +223,42 @@ export const NewsWebpart: React.FunctionComponent<INewsWebpartProps> = props => 
                 <button className="news__filters_btn" onClick={sortByUsers}>User &#8593; &#8595;</button>
                 <button className="news__filters_btn" onClick={sortByDate}>Date &#8593; &#8595;</button>
               </div>
-              <div className="news__non-visible">
+              {/* <div className="news__non-visible">
                 <Checkbox
                   label="Show non-visible"
                   checked={nonVisible}
                   onChange={onChangeNonVisible}
                 />
-              </div>
-              {items.map(item => (
+              </div> */}
+              {items.filter(item => {
+                if (props.isVisible === false) {
+                  if (props.user.length === 0) {
+                    return (
+                      new Date(item.DatePublishing) > new Date(props.date.value)
+                    );
+                  }
+                  else {
+                    return (
+                      item.AssignedPerson.Title === props.user[0].fullName &&
+                      new Date(item.DatePublishing) > new Date(props.date.value)
+                    );
+                  }
+                } else if (props.isVisible === true) {
+                  if (props.user.length === 0) {
+                    return (
+                      new Date(item.DatePublishing) > new Date(props.date.value)
+                    );
+                  }
+                  else {
+                    return (
+                      item.AssignedPerson.Title === props.user[0].fullName &&
+                      new Date(item.DatePublishing) > new Date(props.date.value)
+                    );
+                  }
+                }
+                
+              }
+              ).map(item => (
                 nonVisible
                 ? (
                     <div className="news__item" >
